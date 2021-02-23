@@ -10,4 +10,4 @@ COPY --from=builder /usr/local/bin/motivate /usr/local/bin/motivate
 
 RUN apk add ncftp
 
-CMD motivate | tee motivate.txt && ncftpput -u one -p 1234 localhost:21010 . motivate.txt
+CMD motivate --no-colors | tee motivate.txt && ncftpput -u one -p 1234 172.17.0.3 . motivate.txt
